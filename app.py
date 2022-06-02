@@ -32,7 +32,11 @@ def predict():
     prediction = model.predict(input_variables)
     print(prediction)
     return flask.render_template('result.html', prediction_text = prediction)       
-    
+
+@app.route('/main')
+def main():
+    return render_template('main.html')
+
 @app.route('/analysis')
 def analysis():
     return render_template('analysis.html')
