@@ -35,6 +35,13 @@ def predict():
     print(prediction)
     return flask.render_template('result.html', prediction_text = prediction)       
     
+@app.route("/analysis")
+def analysis():
+    return render_template('analysis.html')
+
+@app.route("/data")
+def data():
+    return render_template('data.html')
 
 if __name__ == '__main__':
     app.run()
