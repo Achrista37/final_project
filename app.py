@@ -12,12 +12,10 @@ with open(f'model/stroke_logreg_final88.pkl','rb') as f:
     model = pickle.load(f)
 
 @app.route('/')
-
 def home():
-    return render_template('main.html')
+    return flask.render_template('main.html')
 
 @app.route('/predict',methods=['POST'])
-
 def predict():    
     age = flask.request.form['age']
     avg_glucose_level = flask.request.form['avg_glucose_level']
@@ -35,11 +33,11 @@ def predict():
     print(prediction)
     return flask.render_template('result.html', prediction_text = prediction)       
     
-@app.route("/analysis")
+@app.route('/analysis')
 def analysis():
     return render_template('analysis.html')
 
-@app.route("/data")
+@app.route('/data')
 def data():
     return render_template('data.html')
 
